@@ -4,14 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { secondaryColor, themeColor } from './constants/theme';
 
 const theme = createTheme({
 	palette: {
 		primary: {
-			main: "#ff914d",
+			main: themeColor,
 		},
 		secondary: {
-			main: "#ffb88c",
+			main: secondaryColor,
 		}
 	},
 	typography: {

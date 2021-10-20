@@ -12,6 +12,8 @@ import toolbarStyles from './css/toolbarStyles';
 import Logo from "../../assets/images/defaultLogo.png";
 import { themeColor } from '../../constants/theme';
 import SessionStorage from '../../data/model/sessionStorage/SessionStorage';
+import GuestNavBar from './GuestNavBar';
+import CustomDrawer from './drawer/CustomDrawer';
 
 
 
@@ -57,17 +59,19 @@ const ToolbarApp: React.FunctionComponent = (props: any) => {
                 <Toolbar>
                     <Grid
                         container
-                        spacing={0}
                         direction="row"
                         alignItems="center"
-                        justifyContent="center">
-                        <Grid item xs={4} md={2}>
-                            <img src={Logo} onClick={() => history.push("/")} style={{ display: "contain", width: "10vh", height:"auto", minWidth: "8vw"}} />
+                        justifyContent="space-between">
+                        <Grid item xs={2} sx={{ display: { lg: 'none', xs: 'block' } }}>
+                            <CustomDrawer classes={classes} />
                         </Grid>
-                        <Grid item xs={4} md={8}>
-                            <Typography className={classes.titleHeader}>{t("toolbar.title")}</Typography>
+                        <Grid item xs={3} lg={2}>
+                            <img src={Logo} onClick={() => history.push("/")} style={{ display: "contain", width: "10vh", height: "auto", minWidth: "8vw" }} />
                         </Grid>
-                        <Grid item xs={4} md={2}>
+                        <Grid item sx={{ display: { lg: 'block', xs: 'none' } }}>
+                            {!SessionStorage.isLoggedIn() && <GuestNavBar />}
+                        </Grid>
+                        <Grid item xs={2} lg={2}>
                             {SessionStorage.isLoggedIn() ?
                                 <ExitToAppIcon onClick={() => handleLogout()} style={{ color: themeColor, fontSize: "8vw", maxHeight: "6vh" }} />
                                 :
