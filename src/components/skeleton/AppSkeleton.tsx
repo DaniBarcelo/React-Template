@@ -22,7 +22,7 @@ export default function AppSkeleton(props: IAppSkeletonProps) {
         <div className={classes.root}>
             <div style={{ display: "block" }}>
                 <Toolbar />
-                <div style={{ marginTop: "13vh", minHeight: window.innerHeight * 0.80 }}>
+                <div style={{ marginTop: "13vh", minHeight: window.innerHeight * 0.80 + 1 }}>
                     <MainDashboard component={props.component} {...props} />
                 </div>
                 <Footer />
