@@ -48,7 +48,7 @@ const ToolbarApp: React.FunctionComponent = (props: any) => {
             className={classes.grow}
         >
             <AppBar
-                style={{ backgroundColor: "white", height: "12vw", maxHeight: "5vw", minHeight: "7vh" }}
+                style={{ backgroundColor: "white", height: "7vh", maxHeight: "5vw", minHeight: "7vh" }}
                 //position="static">
                 position="fixed"
                 //classes={{root: classes.appBarModified}}
@@ -66,7 +66,7 @@ const ToolbarApp: React.FunctionComponent = (props: any) => {
                             <CustomDrawer classes={classes} />
                         </Grid>
                         <Grid item xs={3} lg={2}>
-                            <img src={Logo} onClick={() => history.push("/")} style={{ display: "contain", width: "10vh", height: "auto", minWidth: "8vw" }} />
+                            <img src={Logo} onClick={() => history.push("/")} style={{ display: "contain", width: "auto", height: "12vw", maxHeight: "7vh" }} />
                         </Grid>
                         <Grid item sx={{ display: { lg: 'block', xs: 'none' } }}>
                             {!SessionStorage.isLoggedIn() && <GuestNavBar />}
